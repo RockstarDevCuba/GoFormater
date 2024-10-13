@@ -1,7 +1,6 @@
 package goformater
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 
@@ -36,7 +35,6 @@ func Parser(str string, _map MapArgv) (string, error) {
 			return str, err.InvalidFormatError(allFormatParser[i])
 		}
 		replace, err := getElementReplace(allFormatParser[i], _map)
-		fmt.Println(replace)
 		if err != nil {
 			return str, err
 		}
