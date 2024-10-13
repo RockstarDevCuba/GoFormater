@@ -21,8 +21,5 @@ go get github.com/RockstarDevCuba/GoFormater
 
 ```
 
-Se usa
-```go
-import "github.com/googollee/go-socket.io"
-```
+
 
