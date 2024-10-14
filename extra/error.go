@@ -3,6 +3,7 @@ package extra
 const (
 	ERROR_REGEX = "Invalid format: "
 	KEY_ERROR   = "Key Error: "
+	INDEX_ERROR = "Index Error: "
 )
 
 type errorGoFormat struct {
@@ -24,6 +25,13 @@ func InvalidFormatError(args string) error {
 func KeyError(args string) error {
 	return &errorGoFormat{
 		ErrorType: KEY_ERROR,
+		Args:      args,
+	}
+}
+
+func IndexError(args string) error {
+	return &errorGoFormat{
+		ErrorType: INDEX_ERROR,
 		Args:      args,
 	}
 }

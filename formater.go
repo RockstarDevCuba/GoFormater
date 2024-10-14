@@ -42,3 +42,20 @@ func Parser(str string, _map MapArgv) (string, error) {
 	}
 	return str, nil
 }
+
+func ParserByArgs(str string, errors bool, args ...string) (string, error) {
+	var index int16
+	mc := regexp.MustCompile("{}")
+	allFormat := mc.FindAllString(str, -1)
+	index = int16(len(allFormat))
+	if errors && (int16(len(args)) < index) {
+		return str, err.IndexError("The number of arguments received cannot be less than the number of \"{}\" characters in the text string")
+	}
+	for i := range allFormat {
+		if i > len(args)-1 {
+			break
+		}
+		str = strings.Replace(str, allFormat[i], args[i], 1)
+	}
+	return str, nil
+}
