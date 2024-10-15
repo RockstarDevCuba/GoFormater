@@ -26,6 +26,9 @@ func getElementReplace(keys string, _map MapArgv) (string, error) {
 	return val, nil
 }
 
+// Parser receives a text string and an argument of type MapArgv equals map[string]string
+// of type MapArgv equals map[string]string
+// Returns strin
 func Parser(str string, _map MapArgv) (string, error) {
 	mc := regexp.MustCompile(parserPattern)
 	allFormatParser := mc.FindAllString(str, -1)
@@ -43,6 +46,10 @@ func Parser(str string, _map MapArgv) (string, error) {
 	return str, nil
 }
 
+// ParseByArgs takes a text string,
+// true/false to throw errors and arguments in the form of an array
+// return string
+// If errors = true it will throw an exception of type IndexError
 func ParserByArgs(str string, errors bool, args ...string) (string, error) {
 	var index int16
 	mc := regexp.MustCompile("{}")
